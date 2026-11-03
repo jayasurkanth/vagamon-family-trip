@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173d32">
+  <title>Vagamon Family Getaway | 3 Nights, 4 Days</title>
+  <style>
+    :root {
+      --forest: #173d32;
+      --forest-2: #245747;
+      --sage: #e8f0e8;
+      --cream: #fbfaf5;
+      --ink: #24312b;
+      --muted: #68766e;
+      --line: #dce5dc;
+      --gold: #d9a84e;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .hero {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 72px 22px;
+      color: white;
+      background:
+        linear-gradient(120deg, rgba(13, 39, 31, .84), rgba(13, 39, 31, .32)),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+    .hero-inner { max-width: 850px; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #e9d6a7;
+    }
+    h1 {
+      margin: 14px 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+    .hero p { max-width: 620px; margin: 0 auto; font-size: 1.08rem; color: #f1f4ef; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-meta span {
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(255,255,255,.12);
+      padding: 7px 13px; border-radius: 999px; font-size: .9rem;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 5;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px;
+      padding: 13px 16px; background: rgba(251,250,245,.96);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+    }
+    nav a { text-decoration: none; font-size: .92rem; font-weight: 650; color: var(--forest); }
+    main { width: min(1080px, calc(100% - 36px)); margin: auto; }
+    section { padding: 54px 0 12px; }
+    .section-kicker { color: var(--forest-2); text-transform: uppercase; letter-spacing: .13em; font-size: .75rem; font-weight: 800; }
+    h2 { margin: 6px 0 10px; font: 600 clamp(1.8rem, 4vw, 2.65rem)/1.15 Georgia, serif; color: var(--forest); }
+    .intro { max-width: 720px; color: var(--muted); margin: 0; }
+    .day {
+      margin: 26px 0; padding: 26px; background: var(--white);
+      border: 1px solid var(--line); border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(26, 57, 43, .045);
+    }
+    .day-head { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+    .day-number {
+      flex: 0 0 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 14px; background: var(--sage); color: var(--forest); font-weight: 800;
+    }
+    .day h3 { margin: 0; color: var(--forest); font-size: 1.25rem; }
+    .day-date { color: var(--muted); font-size: .9rem; }
+    .schedule { width: 100%; border-collapse: collapse; }
+    .schedule tr + tr { border-top: 1px solid #edf1ec; }
+    .schedule td { padding: 12px 8px; vertical-align: top; }
+    .schedule td:first-child { width: 175px; color: var(--forest-2); font-weight: 750; white-space: nowrap; }
+    .note {
+      margin-top: 17px; padding: 13px 15px; border-left: 3px solid var(--gold);
+      background: #fbf6e9; border-radius: 0 10px 10px 0; color: #5c513b; font-size: .94rem;
+    }
+    .priority-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+    .place {
+      background: white; border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+    }
+    .place h3 { margin: 0 0 4px; color: var(--forest); font-size: 1.05rem; }
+    .place p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .tag { display: inline-block; margin-top: 10px; color: var(--forest-2); background: var(--sage); border-radius: 999px; padding: 3px 9px; font-size: .78rem; font-weight: 700; }
+    .tips {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px;
+    }
+    .tip { padding: 16px; border-radius: 13px; background: var(--sage); color: #314b3e; }
+    .tip strong { display: block; margin-bottom: 3px; color: var(--forest); }
+    .map-link {
+      display: inline-block; margin-top: 18px; padding: 10px 15px; border-radius: 999px;
+      background: var(--forest); color: white; text-decoration: none; font-weight: 700;
+    }
+    footer { margin-top: 60px; padding: 30px 18px; background: var(--forest); color: #e7eee8; text-align: center; font-size: .9rem; }
+    footer p { margin: 5px; }
+    @media (max-width: 650px) {
+      .hero { min-height: 390px; }
+      .day { padding: 18px 14px; }
+      .schedule td { display: block; padding: 7px 4px; }
+      .schedule td:first-child { width: auto; padding-bottom: 0; white-space: normal; }
+      .priority-grid, .tips { grid-template-columns: 1fr; }
+      nav { gap: 8px 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">A Kerala hill-station escape</div>
+      <h1>Vagamon</h1>
+      <p>A relaxed 3-night family getaway among rolling meadows, pine forests, tea gardens and misty hill views.</p>
+      <div class="hero-meta">
+        <span>Friday morning – Monday morning</span>
+        <span>3 nights · 4 days</span>
+        <span>Family-friendly pace</span>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page navigation">
+    <a href="#itinerary">Itinerary</a>
+    <a href="#highlights">Top places</a>
+    <a href="#tips">Travel tips</a>
+  </nav>
+
+  <main>
+    <section id="itinerary">
+      <div class="section-kicker">Your travel plan</div>
+      <h2>Four days in Vagamon</h2>
+      <p class="intro">The timings below are suggested sightseeing slots, not guaranteed attraction opening hours. Adjust them to your starting city, road conditions, weather and your family's pace.</p>
+
+      <article class="day">
+        <div class="day-head">
+          <div class="day-number">01</div>
+          <div><h3>Arrival, tea gardens & viewpoint</h3><div class="day-date">Friday · Check in and take it easy</div></div>
+        </div>
+        <table class="schedule">
+          <tr><td>Morning</td><td>Start your journey to Vagamon. Travel time depends on your starting city.</td></tr>
+          <tr><td>12:00–1:00 PM</td><td>Lunch on the way or after reaching the area.</td></tr>
+          <tr><td>1:00–2:30 PM</td><td>Reach your accommodation, check in and rest.</td></tr>
+          <tr><td>3:00–4:00 PM</td><td>Take a relaxed drive through nearby tea plantations.</td></tr>
+          <tr><td>4:00–5:30 PM</td><td>Visit Karikadu View Point, if time and weather permit.</td></tr>
+          <tr><td>Evening</td><td>Return to your stay, have dinner and relax.</td></tr>
+        </table>
+        <div class="note"><strong>Family tip:</strong> Keep the first day light after the journey. If you arrive late, skip the viewpoint and enjoy the resort.</div>
+      </article>
+
+      <article class="day">
+        <div class="day-head">
+          <div class="day-number">02</div>
+          <div><h3>Vagamon's signature attractions</h3><div class="day-date">Saturday · Pine forest, adventure park & meadows</div></div>
+        </div>
+        <table class="schedule">
+          <tr><td>7:00–8:00 AM</td><td>Breakfast at your accommodation.</td></tr>
+          <tr><td>8:30–10:00 AM</td><td>Explore Vagamon Pine Forest and enjoy the tall trees and photo spots.</td></tr>
+          <tr><td>10:15 AM–12:30 PM</td><td>Visit the Vagamon adventure area and glass bridge, if open and suitable for your family.</td></tr>
+          <tr><td>12:30–1:30 PM</td><td>Lunch.</td></tr>
+          <tr><td>1:30–2:30 PM</td><td>Return to your accommodation and rest.</td></tr>
+          <tr><td>3:00–5:30 PM</td><td>Visit Vagamon Meadows (Mottakunnu). Enjoy the open hills and late-afternoon scenery.</td></tr>
+          <tr><td>Evening</td><td>Return to your stay for dinner.</td></tr>
+        </table>
+        <div class="note"><strong>Best photo time:</strong> Late afternoon at the meadows can be lovely, although mist and rain may reduce visibility.</div>
+      </article>
+
+      <article class="day">
+        <div class="day-head">
+          <div class="day-number">03</div>
+          <div><h3>Hill viewpoints & optional waterfall</h3><div class="day-date">Sunday · A flexible sightseeing day</div></div>
+        </div>
+        <table class="schedule">
+          <tr><td>7:00–8:00 AM</td><td>Breakfast.</td></tr>
+          <tr><td>8:00–9:00 AM</td><td>Visit Thangal Para.</td></tr>
+          <tr><td>9:15–10:00 AM</td><td>Visit Murugan Mala.</td></tr>
+          <tr><td>10:15–11:30 AM</td><td>Visit Kurisumala, if your family is comfortable with the walk and terrain.</td></tr>
+          <tr><td>11:30 AM–12:30 PM</td><td>Enjoy a scenic drive through the tea plantations.</td></tr>
+          <tr><td>12:30–1:30 PM</td><td>Lunch.</td></tr>
+          <tr><td>1:30–3:30 PM</td><td>Optional visit to Marmala Waterfalls, only if access, weather and road conditions are suitable.</td></tr>
+          <tr><td>4:00 PM onwards</td><td>Return to Vagamon, relax and enjoy a final family dinner.</td></tr>
+        </table>
+        <div class="note"><strong>Safety note:</strong> Waterfall paths can be steep and slippery, especially after rain. Skip Marmala if travelling with elderly members, young children or anyone with mobility concerns.</div>
+      </article>
+
+      <article class="day">
+        <div class="day-head">
+          <div class="day-number">04</div>
+          <div><h3>Check out & return journey</h3><div class="day-date">Monday · Keep the morning simple</div></div>
+        </div>
+        <table class="schedule">
+          <tr><td>6:00–7:00 AM</td><td>Wake up and have breakfast, or arrange a packed breakfast with your stay.</td></tr>
+          <tr><td>7:00–8:00 AM</td><td>Check out and load your luggage.</td></tr>
+          <tr><td>8:00 AM onwards</td><td>Start your return journey.</td></tr>
+        </table>
+        <div class="note">Avoid adding a major attraction on Monday so the family can start the return journey without rushing.</div>
+      </article>
+    </section>
+
+    <section id="highlights">
+      <div class="section-kicker">Don't miss these</div>
+      <h2>Places to prioritise</h2>
+      <p class="intro">A shortlist to help you decide what to keep if the weather or travel time changes your plans.</p>
+      <div class="priority-grid">
+        <div class="place"><h3>Vagamon Meadows</h3><p>Open rolling grasslands and wide hill views. Aim for the afternoon.</p><span class="tag">Top priority</span></div>
+        <div class="place"><h3>Vagamon Pine Forest</h3><p>A peaceful forest walk and one of the area's best-known photo stops.</p><span class="tag">Top priority</span></div>
+        <div class="place"><h3>Glass Bridge / Adventure Park</h3><p>An optional adventure stop. Check operating status, ticket rules and weather before going.</p><span class="tag">Check before visiting</span></div>
+        <div class="place"><h3>Thangal Para</h3><p>A hilltop viewpoint and religious site. Check access and local conditions.</p><span class="tag">Recommended</span></div>
+        <div class="place"><h3>Murugan Mala</h3><p>A scenic hill and temple stop that can be combined with nearby viewpoints.</p><span class="tag">Recommended</span></div>
+        <div class="place"><h3>Karikadu View Point</h3><p>A scenic viewpoint that can fit into your arrival afternoon.</p><span class="tag">If time permits</span></div>
+        <div class="place"><h3>Kurisumala</h3><p>A peaceful hill area; consider the walking effort and your family's comfort.</p><span class="tag">Optional</span></div>
+        <div class="place"><h3>Marmala Waterfalls</h3><p>A longer optional outing. Visit only when access and weather are safe.</p><span class="tag">Weather dependent</span></div>
+      </div>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vagamon+Kerala" target="_blank" rel="noopener">Open Vagamon in Google Maps ↗</a>
+    </section>
+
+    <section id="tips">
+      <div class="section-kicker">Before you go</div>
+      <h2>Family travel tips</h2>
+      <div class="tips">
+        <div class="tip"><strong>Pack layers</strong>Carry light jackets or sweaters for cool mornings and evenings.</div>
+        <div class="tip"><strong>Wear suitable shoes</strong>Choose comfortable shoes with grip for forest paths and viewpoints.</div>
+        <div class="tip"><strong>Check the weather</strong>Hill fog and rain can change visibility, access and driving times.</div>
+        <div class="tip"><strong>Confirm attraction details</strong>Check current opening hours, entry fees, glass bridge operation and waterfall access locally.</div>
+        <div class="tip"><strong>Choose a convenient stay</strong>Look around Vagamon town or Kolahalamedu to reduce backtracking.</div>
+        <div class="tip"><strong>Keep the plan flexible</strong>Prioritise the meadows and pine forest; treat the other stops as optional.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Vagamon Family Getaway</strong></p>
+    <p>3 nights · Friday morning to Monday morning</p>
+    <p>Suggested itinerary — confirm local conditions before travel.</p>
+  </footer>
+</body>
+</html>
